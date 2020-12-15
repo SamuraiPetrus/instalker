@@ -2,6 +2,7 @@
     <header class="appheader">
         <div class="appheader-content is-flex is-flex-wrap-wrap is-align-items-center is-justify-content-space-between mb-5 pb-5 pt-5">
             <div class="appheader-brand is-flex is-align-items-center">
+                <a class="appheader-back mr-4" href="#"><i class="fas fa-arrow-left"></i></a>
                 <figure class="appheader-logo">
                     <img alt="Instalker logo" src="../assets/instalker-logo.png">
                 </figure>
@@ -24,6 +25,9 @@
 <style>
     .appheader-content{
         border-bottom: 1px solid #c4c4c4;
+    }
+    .appheader-back{
+        font-size: 25px;
     }
     .appheader-logo{
         height: 50px;
