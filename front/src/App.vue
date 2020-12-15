@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-      <!-- <Home></Home> -->
+      <Home></Home>
       <User></User>
   </div>
 </template>
 
 <script>
 
-// import Home from './components/Home.vue'
+import Home from './components/Home.vue'
 import User from './components/User/User.vue'
 export default {
   name: 'App',
   components: {
+      Home,
       User
   }
 }

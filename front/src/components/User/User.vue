@@ -1,5 +1,5 @@
 <template>
-    <div class="user container">
+    <div class="user container" v-show="found">
         <div class="pl-4 pr-4">
             <Appheader></Appheader>
             <div class="user-content is-flex is-flex-wrap-wrap is-justify-content-center">
@@ -30,6 +30,14 @@
             Usertag,
             Appfooter
         },
+
+        data() {
+            return {
+                found: false,
+                user: {}
+            }
+        },
+
         methods: {
             repeatUser( num ) {
                 var count = 0,
@@ -40,7 +48,16 @@
                 }
 
                 return repeat_user_loop
+            },
+
+            getStalkedUser ( user ) {
+                this.found = true;
+                this.user = user;
             }
+        },
+
+        created () {
+            Event.listen('stalkUser', ( user ) => { this.getStalkedUser( user ) })
         }
     }
 
