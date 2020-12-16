@@ -3,11 +3,12 @@
         <div class="pl-4 pr-4">
             <Appheader></Appheader>
             <div class="user-content is-flex is-flex-wrap-wrap is-justify-content-center">
-                <Userheader></Userheader>
+                <Userheader :user="user">
+                </Userheader>
                 <div class="user-posts columns mt-5 mb-5 is-multiline is-full">
-                    <Userpost v-for="user in repeatUser(9)" :key="user"></Userpost>
+                    <Userpost v-for="post in media" :key="post.node.id" :post="post.node" ></Userpost>
                 </div>
-                <Usertag></Usertag>
+                <Usertag :user="user"></Usertag>
             </div>
             <Appfooter></Appfooter>
         </div>
@@ -34,7 +35,8 @@
         data() {
             return {
                 found: false,
-                user: {}
+                user: {},
+                media: []
             }
         },
 
@@ -52,12 +54,25 @@
 
             getStalkedUser ( user ) {
                 this.found = true;
-                this.user = user;
+                this.user = {
+                    username:  user.username,
+                    posts: user.edge_owner_to_timeline_media.count,
+                    followed:  user.edge_followed_by.count,
+                    follow:  user.edge_follow.count,
+                    full_name: user.full_name,
+                    profile_pic: user.profile_pic_url_hd,
+                    biography: user.biography,
+                    external_url:  user.external_url,
+                    is_verified: user.is_verified
+                };
+
+                this.media = user.edge_owner_to_timeline_media.edges
             }
         },
 
         created () {
             Event.listen('stalkUser', ( user ) => { this.getStalkedUser( user ) })
+            Event.listen('backToHome', () => this.found = false)
         }
     }
 

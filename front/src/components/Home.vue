@@ -40,6 +40,7 @@
 
         created () {
             Event.listen('userFound', () => { this.found = true })
+            Event.listen('backToHome', () => this.found = false)
         }
     }
 </script>

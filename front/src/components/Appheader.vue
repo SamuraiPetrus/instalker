@@ -2,7 +2,7 @@
     <header class="appheader">
         <div class="appheader-content is-flex is-flex-wrap-wrap is-align-items-center is-justify-content-space-between mb-5 pb-5 pt-5">
             <div class="appheader-brand is-flex is-align-items-center">
-                <a class="appheader-back mr-4" href="#"><i class="fas fa-arrow-left"></i></a>
+                <a href="javascript:void(0)" @click="backToHome()" class="appheader-back mr-4"><i class="fas fa-arrow-left"></i></a>
                 <figure class="appheader-logo">
                     <img alt="Instalker logo" src="../assets/instalker-logo.png">
                 </figure>
@@ -18,6 +18,11 @@
     export default {
       components: {
           Searchform
+      },
+      methods:{
+          backToHome() {
+              Event.fire('backToHome')
+          }
       }
     }
 </script>

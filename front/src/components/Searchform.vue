@@ -31,7 +31,8 @@ export default {
                 .then( response => {
                     console.log(response.data.graphql)
                     this.found = true
-                    Event.fire('stalkUser', response.data.graphql)
+                    this.user = ""
+                    Event.fire('stalkUser', response.data.graphql.user)
                     Event.fire('userFound')
                 })
                 .catch( error => {
