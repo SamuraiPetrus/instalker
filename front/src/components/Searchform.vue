@@ -29,7 +29,6 @@ export default {
                 axios
                 .get('https://www.instagram.com/'+ user +'/?__a=1')
                 .then( response => {
-                    console.log(response.data.graphql)
                     this.found = true
                     this.user = ""
                     Event.fire('stalkUser', response.data.graphql.user)
