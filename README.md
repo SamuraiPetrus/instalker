@@ -1,24 +1,5 @@
 # instalker_front
 
-## Project setup
-```
-npm install
-```
+# Bad news :(
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Instagram has introduced a *strict-origin-when-cross-origin* policy to it's Public API, and is only allowing cross origin requests from official domains, for this reason, the Instalker Project was discontinued, due to CORS policy blocks. It was a cool project, but it's now dead.
